@@ -419,29 +419,34 @@ h1 {
 /* Love Section */
 .love-card {
     text-align: center;
+    margin-top: 40px;
+}
+
+.love-card h2 {
+    display: none; /* Hide the header to make it look more organic */
 }
 
 .love-list {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 12px;
-    margin-top: 15px;
+    gap: 15px;
+    margin-top: 20px;
+    padding: 20px;
 }
 
 .love-badge {
-    padding: 10px 18px;
-    border-radius: 25px;
-    font-size: 1rem;
-    font-weight: 500;
-    background: rgba(255, 255, 255, 0.9);
-    color: var(--secondary-color);
-    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    padding: 5px 15px;
+    font-size: 2.2rem;
+    font-family: 'Nanum Pen Script', 'Caveat', cursive;
+    color: rgba(255, 255, 255, 0.9);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
     transition: all 0.3s ease;
+    cursor: default;
 }
 
 .love-badge:hover {
-    background: var(--secondary-color);
-    color: white;
-    transform: scale(1.05) translateY(-2px);
+    color: #fff;
+    transform: scale(1.15) rotate(-3deg);
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
 }
