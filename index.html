@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>다현 ❤️ 혜윤</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;500;700&family=Outfit:wght@400;600;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="background-elements">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+    </div>
+
+    <div class="container">
+        <header>
+            <p class="days-together">Days Together: <span id="days-count"></span> ❤️</p>
+            <h1>Dahyeon <span class="heart">❤️</span> Hyeyoon</h1>
+        </header>
+
+        <section class="card combined-card">
+            <div class="image-wrapper-large">
+                <img src="assets/combined.png" alt="다현 혜윤 커플과 반려 동물들">
+            </div>
+        </section>
+
+        <section class="card schedule-card">
+            <h2>📅 Our Special Dates</h2>
+            <form id="schedule-form" class="schedule-form">
+                <input type="date" id="schedule-date" required>
+                <input type="text" id="schedule-desc" placeholder="What are we doing?" required>
+                <button type="submit" class="btn-add">Add Event</button>
+            </form>
+            <ul id="schedule-list" class="schedule-list">
+                <!-- Schedules will be added here via JS -->
+            </ul>
+        </section>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
