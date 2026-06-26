@@ -177,7 +177,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (isRolling) return;
             isRolling = true;
             
-            diceResult.textContent = '두구두구두구...';
+            diceResult.textContent = 'Drumroll...';
             
             const face = Math.floor(Math.random() * 6) + 1;
             
@@ -190,12 +190,12 @@ document.addEventListener('DOMContentLoaded', () => {
             let name = "";
             
             switch (face) {
-                case 1: rotX = 0; rotY = 0; name = "혜윤"; break;
-                case 2: rotX = 0; rotY = -90; name = "쪼"; break;
-                case 3: rotX = 0; rotY = -180; name = "다현"; break;
-                case 4: rotX = 0; rotY = 90; name = "보검"; break;
-                case 5: rotX = -90; rotY = 0; name = "구찌"; break;
-                case 6: rotX = 90; rotY = 0; name = "까미"; break;
+                case 1: rotX = 0; rotY = 0; name = "Hyeyoon"; break;
+                case 2: rotX = 0; rotY = -90; name = "Jjo"; break;
+                case 3: rotX = 0; rotY = -180; name = "Dahyeon"; break;
+                case 4: rotX = 0; rotY = 90; name = "Bogeom"; break;
+                case 5: rotX = -90; rotY = 0; name = "Gucci"; break;
+                case 6: rotX = 90; rotY = 0; name = "Kkami"; break;
             }
             
             rotX += extraSpinsX * (Math.random() > 0.5 ? 1 : -1);
@@ -204,7 +204,7 @@ document.addEventListener('DOMContentLoaded', () => {
             dice.style.transform = `translateZ(-60px) rotateX(${rotX}deg) rotateY(${rotY}deg)`;
             
             setTimeout(() => {
-                diceResult.innerHTML = `🎉 오늘의 주인공은 <strong>${name}</strong>! 🎉`;
+                diceResult.innerHTML = `🎉 Today's protagonist is <strong>${name}</strong>! 🎉`;
                 isRolling = false;
             }, 1500);
         });
@@ -217,7 +217,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const rouletteResult = document.getElementById('roulette-result');
     
     if (canvas && ctx && spinBtn && rouletteResult) {
-        const options = ["한식", "중식", "일식", "양식", "퓨전", "아시아음식", "분식", "혜윤픽", "다현픽"];
+        const options = ["Korean", "Chinese", "Japanese", "Western", "Fusion", "Asian", "Snacks", "Hyeyoon's Pick", "Dahyeon's Pick"];
         const colors = ["#ffadad", "#ffd6a5", "#fdffb6", "#caffbf", "#9bf6ff", "#a0c4ff", "#bdb2ff", "#ffc6ff", "#fffffc"];
         const numOptions = options.length;
         const arcSize = (2 * Math.PI) / numOptions;
@@ -249,7 +249,7 @@ document.addEventListener('DOMContentLoaded', () => {
         spinBtn.addEventListener('click', () => {
             if (isSpinning) return;
             isSpinning = true;
-            rouletteResult.textContent = '빙글빙글...';
+            rouletteResult.textContent = 'Spinning...';
             
             const spins = Math.floor(Math.random() * 5) + 5;
             const randomDegree = Math.floor(Math.random() * 360);
@@ -262,7 +262,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 const pointerDeg = (270 - actualDeg + 360) % 360;
                 const selectedIndex = Math.floor(pointerDeg / (360 / numOptions));
                 
-                rouletteResult.innerHTML = `🎉 오늘의 메뉴는 <strong>${options[selectedIndex]}</strong>! 🎉`;
+                rouletteResult.innerHTML = `🎉 Today's menu is <strong>${options[selectedIndex]}</strong>! 🎉`;
                 isSpinning = false;
             }, 3000);
         });

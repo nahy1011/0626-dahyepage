@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>다현 ❤️ 혜윤</title>
+    <title>Dahyeon ❤️ Hyeyoon</title>
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -31,8 +31,8 @@
             <h2>📅 Our Special Dates</h2>
             <form id="schedule-form" class="schedule-form">
                 <input type="date" id="schedule-date" required>
-                <input type="text" id="schedule-desc" placeholder="What are we doing?" required>
-                <button type="submit" class="btn-add">Add Event</button>
+                <input type="text" id="schedule-desc" placeholder="What's the occasion?" required>
+                <button type="submit" class="btn-add">Add</button>
             </form>
             <ul id="schedule-list" class="schedule-list">
                 <!-- Schedules will be added here via JS -->
@@ -40,42 +40,42 @@
         </section>
 
         <section class="card verse-card">
-            <h2>📖 오늘의 말씀!</h2>
-            <button id="verse-btn" class="btn-add">말씀 뽑기</button>
+            <h2>📖 Today's Verse!</h2>
+            <button id="verse-btn" class="btn-add">Draw a Verse</button>
             <div id="verse-result" class="verse-result">
-                <p class="verse-text">버튼을 눌러 오늘의 말씀을 뽑아보세요!</p>
+                <p class="verse-text">Click the button to get today's verse!</p>
                 <p class="verse-ref"></p>
             </div>
         </section>
 
         <section class="card dice-card">
-            <h2>🎲 오늘의 주인공은?</h2>
+            <h2>🎲 Who is the protagonist today?</h2>
             <div class="scene">
                 <div class="cube" id="dice">
-                    <div class="cube__face cube__face--front">혜윤</div>
-                    <div class="cube__face cube__face--right">쪼</div>
-                    <div class="cube__face cube__face--back">다현</div>
-                    <div class="cube__face cube__face--left">보검</div>
-                    <div class="cube__face cube__face--top">구찌</div>
-                    <div class="cube__face cube__face--bottom">까미</div>
+                    <div class="cube__face cube__face--front">Hyeyoon</div>
+                    <div class="cube__face cube__face--right">Jjo</div>
+                    <div class="cube__face cube__face--back">Dahyeon</div>
+                    <div class="cube__face cube__face--left">Bogeom</div>
+                    <div class="cube__face cube__face--top">Gucci</div>
+                    <div class="cube__face cube__face--bottom">Kkami</div>
                 </div>
             </div>
-            <button id="roll-btn" class="btn-add roll-btn">주사위 굴리기!</button>
-            <p id="dice-result" class="dice-result">버튼을 눌러 주인공을 뽑아보세요!</p>
+            <button id="roll-btn" class="btn-add roll-btn">Roll the Dice!</button>
+            <p id="dice-result" class="dice-result">Click the button to pick a protagonist!</p>
         </section>
 
         <section class="card roulette-card">
-            <h2>🍽️ 오늘은 뭐먹을랭?</h2>
+            <h2>🍽️ What should we eat today?</h2>
             <div class="roulette-container">
                 <div class="roulette-pointer">▼</div>
                 <canvas id="roulette" width="300" height="300"></canvas>
             </div>
-            <button id="spin-btn" class="btn-add roll-btn">룰렛 돌리기!</button>
-            <p id="roulette-result" class="dice-result">버튼을 눌러 메뉴를 골라보세요!</p>
+            <button id="spin-btn" class="btn-add roll-btn">Spin the Roulette!</button>
+            <p id="roulette-result" class="dice-result">Click the button to pick a menu!</p>
         </section>
 
         <section class="love-card">
-            <h2>🌍 세상 모든 언어로</h2>
+            <h2>🌍 In all languages</h2>
             <div class="love-list">
                 <span class="love-badge">🇰🇷 사랑해</span>
                 <span class="love-badge">🇺🇸 I love you</span>
@@ -91,6 +91,6 @@
         </section>
     </div>
 
-    <script src="script.js?v=2"></script>
+    <script src="script.js?v=3"></script>
 </body>
 </html>
