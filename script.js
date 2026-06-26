@@ -267,4 +267,22 @@ document.addEventListener('DOMContentLoaded', () => {
             }, 3000);
         });
     }
+
+    // Love languages logic
+    const loveBadges = document.querySelectorAll('.love-badge');
+    loveBadges.forEach(badge => {
+        badge.addEventListener('click', () => {
+            const originalText = badge.getAttribute('data-original');
+            const country = badge.getAttribute('data-country');
+            
+            if (badge.textContent === originalText) {
+                badge.textContent = country;
+                badge.style.color = '#ffc6ff'; // Highlight color
+                setTimeout(() => {
+                    badge.textContent = originalText;
+                    badge.style.color = 'rgba(255, 255, 255, 0.9)'; // Revert color
+                }, 2000);
+            }
+        });
+    });
 });

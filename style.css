@@ -437,12 +437,12 @@ h1 {
 
 .love-badge {
     padding: 5px 15px;
-    font-size: 2.2rem;
-    font-family: 'Nanum Pen Script', 'Caveat', cursive;
+    font-size: 1.4rem;
+    font-family: 'Jua', sans-serif;
     color: rgba(255, 255, 255, 0.9);
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
     transition: all 0.3s ease;
-    cursor: default;
+    cursor: pointer;
 }
 
 .love-badge:hover {
