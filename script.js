@@ -110,6 +110,61 @@ document.addEventListener('DOMContentLoaded', () => {
     
     renderSchedules();
 
+    renderSchedules();
+
+    // Bible Verse logic
+    const verseBtn = document.getElementById('verse-btn');
+    const verseText = document.querySelector('.verse-text');
+    const verseRef = document.querySelector('.verse-ref');
+    
+    const bibleVerses = [
+        { text: "\"For God so loved the world that he gave his one and only Son, that whoever believes in him shall not perish but have eternal life.\"", ref: "John 3:16" },
+        { text: "\"I can do all this through him who gives me strength.\"", ref: "Philippians 4:13" },
+        { text: "\"And we know that in all things God works for the good of those who love him, who have been called according to his purpose.\"", ref: "Romans 8:28" },
+        { text: "\"Trust in the LORD with all your heart and lean not on your own understanding; in all your ways submit to him, and he will make your paths straight.\"", ref: "Proverbs 3:5-6" },
+        { text: "\"For I know the plans I have for you,\" declares the LORD, \"plans to prosper you and not to harm you, plans to give you hope and a future.\"", ref: "Jeremiah 29:11" },
+        { text: "\"The LORD is my shepherd, I lack nothing.\"", ref: "Psalm 23:1" },
+        { text: "\"In the beginning God created the heavens and the earth.\"", ref: "Genesis 1:1" },
+        { text: "\"But the fruit of the Spirit is love, joy, peace, forbearance, kindness, goodness, faithfulness, gentleness and self-control. Against such things there is no law.\"", ref: "Galatians 5:22-23" },
+        { text: "\"Have I not commanded you? Be strong and courageous. Do not be afraid; do not be discouraged, for the LORD your God will be with you wherever you go.\"", ref: "Joshua 1:9" },
+        { text: "\"Love is patient, love is kind. It does not envy, it does not boast, it is not proud.\"", ref: "1 Corinthians 13:4" },
+        { text: "\"Do to others as you would have them do to you.\"", ref: "Luke 6:31" },
+        { text: "\"Rejoice always, pray continually, give thanks in all circumstances; for this is God's will for you in Christ Jesus.\"", ref: "1 Thessalonians 5:16-18" },
+        { text: "\"Do not be anxious about anything, but in every situation, by prayer and petition, with thanksgiving, present your requests to God.\"", ref: "Philippians 4:6" },
+        { text: "\"Come to me, all you who are weary and burdened, and I will give you rest.\"", ref: "Matthew 11:28" },
+        { text: "\"But seek first his kingdom and his righteousness, and all these things will be given to you as well.\"", ref: "Matthew 6:33" },
+        { text: "\"Therefore, if anyone is in Christ, the new creation has come: The old has gone, the new is here!\"", ref: "2 Corinthians 5:17" },
+        { text: "\"And the peace of God, which transcends all understanding, will guard your hearts and your minds in Christ Jesus.\"", ref: "Philippians 4:7" },
+        { text: "\"Let all that you do be done in love.\"", ref: "1 Corinthians 16:14" },
+        { text: "\"For we walk by faith, not by sight.\"", ref: "2 Corinthians 5:7" },
+        { text: "\"Your word is a lamp for my feet, a light on my path.\"", ref: "Psalm 119:105" },
+        { text: "\"Cast all your anxiety on him because he cares for you.\"", ref: "1 Peter 5:7" },
+        { text: "\"Be kind and compassionate to one another, forgiving each other, just as in Christ God forgave you.\"", ref: "Ephesians 4:32" },
+        { text: "\"The joy of the LORD is your strength.\"", ref: "Nehemiah 8:10" },
+        { text: "\"A friend loves at all times, and a brother is born for a time of adversity.\"", ref: "Proverbs 17:17" },
+        { text: "\"Let your light shine before others, that they may see your good deeds and glorify your Father in heaven.\"", ref: "Matthew 5:16" }
+    ];
+
+    if (verseBtn && verseText && verseRef) {
+        verseBtn.addEventListener('click', () => {
+            const randomIndex = Math.floor(Math.random() * bibleVerses.length);
+            const selectedVerse = bibleVerses[randomIndex];
+            
+            verseText.style.opacity = 0;
+            verseRef.style.opacity = 0;
+            
+            setTimeout(() => {
+                verseText.textContent = selectedVerse.text;
+                verseRef.textContent = "- " + selectedVerse.ref + " (NIV) -";
+                
+                verseText.style.transition = 'opacity 0.5s';
+                verseRef.style.transition = 'opacity 0.5s';
+                verseText.style.opacity = 1;
+                verseRef.style.opacity = 1;
+            }, 300);
+        });
+    }
+
     // Dice logic
     const rollBtn = document.getElementById('roll-btn');
     const dice = document.getElementById('dice');
