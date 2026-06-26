@@ -109,4 +109,107 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     
     renderSchedules();
+
+    // Dice logic
+    const rollBtn = document.getElementById('roll-btn');
+    const dice = document.getElementById('dice');
+    const diceResult = document.getElementById('dice-result');
+    
+    let isRolling = false;
+
+    if (rollBtn && dice && diceResult) {
+        rollBtn.addEventListener('click', () => {
+            if (isRolling) return;
+            isRolling = true;
+            
+            diceResult.textContent = '두구두구두구...';
+            
+            const face = Math.floor(Math.random() * 6) + 1;
+            
+            const extraSpinsX = 1800;
+            const extraSpinsY = 1800;
+            
+            let rotX = 0;
+            let rotY = 0;
+            
+            let name = "";
+            
+            switch (face) {
+                case 1: rotX = 0; rotY = 0; name = "혜윤"; break;
+                case 2: rotX = 0; rotY = -90; name = "쪼"; break;
+                case 3: rotX = 0; rotY = -180; name = "다현"; break;
+                case 4: rotX = 0; rotY = 90; name = "보검"; break;
+                case 5: rotX = -90; rotY = 0; name = "구찌"; break;
+                case 6: rotX = 90; rotY = 0; name = "까미"; break;
+            }
+            
+            rotX += extraSpinsX * (Math.random() > 0.5 ? 1 : -1);
+            rotY += extraSpinsY * (Math.random() > 0.5 ? 1 : -1);
+            
+            dice.style.transform = `translateZ(-60px) rotateX(${rotX}deg) rotateY(${rotY}deg)`;
+            
+            setTimeout(() => {
+                diceResult.innerHTML = `🎉 오늘의 주인공은 <strong>${name}</strong>! 🎉`;
+                isRolling = false;
+            }, 1500);
+        });
+    }
+
+    // Roulette logic
+    const canvas = document.getElementById('roulette');
+    const ctx = canvas ? canvas.getContext('2d') : null;
+    const spinBtn = document.getElementById('spin-btn');
+    const rouletteResult = document.getElementById('roulette-result');
+    
+    if (canvas && ctx && spinBtn && rouletteResult) {
+        const options = ["한식", "중식", "일식", "양식", "퓨전", "아시아음식", "분식", "혜윤픽", "다현픽"];
+        const colors = ["#ffadad", "#ffd6a5", "#fdffb6", "#caffbf", "#9bf6ff", "#a0c4ff", "#bdb2ff", "#ffc6ff", "#fffffc"];
+        const numOptions = options.length;
+        const arcSize = (2 * Math.PI) / numOptions;
+        let currentRotation = 0;
+        let isSpinning = false;
+        
+        function drawRoulette() {
+            for (let i = 0; i < numOptions; i++) {
+                const angle = i * arcSize;
+                ctx.beginPath();
+                ctx.fillStyle = colors[i];
+                ctx.moveTo(150, 150);
+                ctx.arc(150, 150, 150, angle, angle + arcSize);
+                ctx.fill();
+                ctx.save();
+                
+                // Text
+                ctx.fillStyle = "#333";
+                ctx.font = "bold 16px 'Noto Sans KR'";
+                ctx.translate(150 + Math.cos(angle + arcSize / 2) * 100, 150 + Math.sin(angle + arcSize / 2) * 100);
+                ctx.rotate(angle + arcSize / 2 + Math.PI / 2);
+                ctx.fillText(options[i], -ctx.measureText(options[i]).width / 2, 0);
+                ctx.restore();
+            }
+        }
+        
+        drawRoulette();
+        
+        spinBtn.addEventListener('click', () => {
+            if (isSpinning) return;
+            isSpinning = true;
+            rouletteResult.textContent = '빙글빙글...';
+            
+            const spins = Math.floor(Math.random() * 5) + 5;
+            const randomDegree = Math.floor(Math.random() * 360);
+            
+            currentRotation += (spins * 360) + randomDegree;
+            canvas.style.transform = `rotate(${currentRotation}deg)`;
+            
+            setTimeout(() => {
+                const actualDeg = currentRotation % 360;
+                const pointerDeg = (270 - actualDeg + 360) % 360;
+                const selectedIndex = Math.floor(pointerDeg / (360 / numOptions));
+                
+                rouletteResult.innerHTML = `🎉 오늘의 메뉴는 <strong>${options[selectedIndex]}</strong>! 🎉`;
+                isSpinning = false;
+            }, 3000);
+        });
+    }
 });

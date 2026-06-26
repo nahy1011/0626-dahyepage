@@ -38,6 +38,32 @@
                 <!-- Schedules will be added here via JS -->
             </ul>
         </section>
+
+        <section class="card dice-card">
+            <h2>🎲 오늘의 주인공은?</h2>
+            <div class="scene">
+                <div class="cube" id="dice">
+                    <div class="cube__face cube__face--front">혜윤</div>
+                    <div class="cube__face cube__face--right">쪼</div>
+                    <div class="cube__face cube__face--back">다현</div>
+                    <div class="cube__face cube__face--left">보검</div>
+                    <div class="cube__face cube__face--top">구찌</div>
+                    <div class="cube__face cube__face--bottom">까미</div>
+                </div>
+            </div>
+            <button id="roll-btn" class="btn-add roll-btn">주사위 굴리기!</button>
+            <p id="dice-result" class="dice-result">버튼을 눌러 주인공을 뽑아보세요!</p>
+        </section>
+
+        <section class="card roulette-card">
+            <h2>🍽️ 오늘은 뭐먹을랭?</h2>
+            <div class="roulette-container">
+                <div class="roulette-pointer">▼</div>
+                <canvas id="roulette" width="300" height="300"></canvas>
+            </div>
+            <button id="spin-btn" class="btn-add roll-btn">룰렛 돌리기!</button>
+            <p id="roulette-result" class="dice-result">버튼을 눌러 메뉴를 골라보세요!</p>
+        </section>
     </div>
 
     <script src="script.js"></script>
