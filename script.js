@@ -1,5 +1,63 @@
 // script.js
 document.addEventListener('DOMContentLoaded', () => {
+    // Ethics Gate logic
+    const ethicsGate = document.getElementById('ethics-gate');
+    const mainContainer = document.getElementById('main-container');
+    const agreeBtn = document.getElementById('agree-btn');
+
+    if (localStorage.getItem('ethics_agreed') === 'true') {
+        if (ethicsGate) ethicsGate.classList.add('hidden');
+        if (mainContainer) mainContainer.classList.remove('hidden');
+    } else {
+        if (agreeBtn && ethicsGate && mainContainer) {
+            agreeBtn.addEventListener('click', () => {
+                localStorage.setItem('ethics_agreed', 'true');
+                ethicsGate.style.opacity = '0';
+                setTimeout(() => {
+                    ethicsGate.classList.add('hidden');
+                    mainContainer.classList.remove('hidden');
+                }, 500);
+            });
+        }
+    }
+
+    // Policy Modals logic
+    const openTermsBtn = document.getElementById('open-terms-btn');
+    const closeTermsBtn = document.getElementById('close-terms-btn');
+    const termsModal = document.getElementById('terms-modal');
+
+    if (openTermsBtn && closeTermsBtn && termsModal) {
+        openTermsBtn.addEventListener('click', () => {
+            termsModal.classList.remove('hidden');
+            termsModal.style.opacity = '1';
+        });
+
+        closeTermsBtn.addEventListener('click', () => {
+            termsModal.style.opacity = '0';
+            setTimeout(() => {
+                termsModal.classList.add('hidden');
+            }, 500);
+        });
+    }
+
+    const openPrivacyBtn = document.getElementById('open-privacy-btn');
+    const closePrivacyBtn = document.getElementById('close-privacy-btn');
+    const privacyModal = document.getElementById('privacy-modal');
+
+    if (openPrivacyBtn && closePrivacyBtn && privacyModal) {
+        openPrivacyBtn.addEventListener('click', () => {
+            privacyModal.classList.remove('hidden');
+            privacyModal.style.opacity = '1';
+        });
+
+        closePrivacyBtn.addEventListener('click', () => {
+            privacyModal.style.opacity = '0';
+            setTimeout(() => {
+                privacyModal.classList.add('hidden');
+            }, 500);
+        });
+    }
+
     // 2025년 8월 26일 설정
     const startDate = new Date('2025-08-26T00:00:00');
     
